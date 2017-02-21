@@ -1,0 +1,38 @@
+<h1>Products</h1>
+
+<%= form_tag(:action => "index") do %>	
+	<%= text_field_tag "search_name", nil, placeholder: "Buscar nombre", class: "class" %>
+	<%= submit_tag "Enviar", class: "class" %>
+	<button><%= link_to "Quitar Filtro","index" %></button>
+<% end -%>
+
+<%= form_tag(:action => "index") do %>	
+	<%= text_field_tag "search_price", nil, placeholder: "Buscar precio", class: "class" %>
+	<%= submit_tag "Enviar", class: "class" %>
+<% end -%>
+	
+
+
+<table>
+	<tr>
+		<td>Producto</td>
+		<td>Precio</td>
+		<td>Categoria</td>
+	</tr>
+	<% @p.each do |p| %>
+		<tr>
+			<td><%= p.name %></td>
+			<td><%= p.price %></td>
+			<td><%= p.category.name %></td>
+		</tr>
+	<% end %>
+</table>
+
+
+<!-- <style>
+	li{
+		list-style-type: none;
+		padding: 10px 0;
+	}
+</style> -->
+
